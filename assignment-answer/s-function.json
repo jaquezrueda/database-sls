@@ -1,0 +1,56 @@
+{
+  "name": "assignment-answer",
+  "runtime": "nodejs4.3",
+  "description": "Serverless Lambda function for project: database-sls",
+  "customName": false,
+  "customRole": false,
+  "handler": "assignment-answer/handler.handler",
+  "timeout": 300,
+  "memorySize": 512,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [
+    {
+      "path": "assignment",
+      "method": "POST",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": ""
+      },
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "403": {
+          "statusCode": "403"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    }
+  ],
+  "events": [],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}
